@@ -4,7 +4,7 @@ const config = require('./config/config.json');
 const package = require('./package.json');
 const {
   calcTime
-} = require("./utils/calcTime.js");
+} = require("./utils/calctime.js");
 
 const Discord = require('discord.js');
 const Commando = require('discord.js-commando');
