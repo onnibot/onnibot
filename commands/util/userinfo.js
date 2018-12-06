@@ -3,8 +3,8 @@ const {
 } = require('discord.js-commando');
 
 const {
-  calcDays
-} = require("./../../utils/calcdays.js");
+  calcTime
+} = require("./../../utils/calctime.js");
 
 const Discord = require('discord.js');
 
@@ -109,13 +109,13 @@ module.exports = class ChannelCommand extends Command {
 
       .addField(
         "Account made",
-        `${calcDays(new Date(), user.createdAt)} days ago`,
+        `${calcTime(new Date(), user.createdAt)} ago`,
         true
       )
 
       .addField(
         "Server joined",
-        `${calcDays(new Date(), member.joinedAt)} days ago`,
+        `${calcTime(new Date(), member.joinedAt)} ago`,
         true
       )
 
