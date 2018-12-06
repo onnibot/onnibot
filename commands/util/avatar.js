@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
   name: 'avatar',
   description: 'Returns avatar of a specified member.',
   execute(message, args) {
@@ -12,4 +12,4 @@ module.exports = {
 
 		message.channel.send(avatarList);
   },
-};
+}; */

@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
   name: 'prune',
   description: 'Prunes a specified amount of messages.',
   execute(message, args) {
@@ -16,4 +16,4 @@ module.exports = {
 			message.channel.send('there was an error trying to prune messages in this channel!');
 		});
   },
-};
+}; */
