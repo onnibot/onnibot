@@ -47,7 +47,7 @@ module.exports = class ChannelCommand extends Command {
 
     // Let's start building an embed!
 
-    let embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
 
       // Sets basic info for the embed
       .setTitle(`${guild.name} | Info`)

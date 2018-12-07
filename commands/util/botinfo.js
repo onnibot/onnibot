@@ -39,7 +39,7 @@ module.exports = class ChannelCommand extends Command {
     const client = this.client;
     const me = client.user;
 
-    let embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
 
       // Sets basic info for the embed
       .setTitle(`${me.username} Stats`)

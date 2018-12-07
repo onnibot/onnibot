@@ -73,7 +73,7 @@ module.exports = class ChannelCommand extends Command {
 
 
     // Let's start building an embed!
-    let embed = new Discord.RichEmbed();
+    const embed = new Discord.RichEmbed();
     embed.setFooter(`Please check ${msg.guild.commandPrefix}logs-help for a full tutorial.`);
 
     if (channel) { // There is a channel set

@@ -87,7 +87,7 @@ client.on('guildMemberAdd', member => {
     // Chooses a random title
     title = titles[Math.floor(Math.random() * titles.length)];
 
-    let embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
       // Sets base info for the embed
       .setTitle(title)
       .setThumbnail(member.user.avatarURL)
@@ -123,7 +123,7 @@ client.on('guildMemberRemove', member => {
     ];
     title = titles[Math.floor(Math.random() * titles.length)];
 
-    let embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
       .setTitle(title)
       .setThumbnail(member.user.avatarURL)
       .setColor("RED")

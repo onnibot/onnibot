@@ -41,17 +41,17 @@ module.exports = class ChannelCommand extends Command {
     /* Defaults to message author
     member = member stuff
     user = member.user */
-    let member = args.member ? args.member : msg.member;
-    let user = args.member ? args.member.user : msg.author;
+    const member = args.member ? args.member : msg.member;
+    const user = args.member ? args.member.user : msg.author;
     const me = this.client.user;
 
     // Would break if no visible roles
 
-    let hoistRole = member.hoistRole ? member.hoistRole.name : "None";
+    const hoistRole = member.hoistRole ? member.hoistRole.name : "None";
 
     // Let's start building an embed!
 
-    let embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
 
       // Sets basic info for the embed
       .setTitle(`${user.tag} | Info`)
