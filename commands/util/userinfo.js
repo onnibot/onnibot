@@ -41,22 +41,13 @@ module.exports = class ChannelCommand extends Command {
     /* Defaults to message author
     member = member stuff
     user = member.user */
-    let member = msg.member;
-    let user = msg.author;
+    let member = args.member ? args.member : msg.member;
+    let user = args.member ? args.member.user : msg.author;
     const me = this.client.user;
-
-    if (args.member) {
-      member = args.member;
-      user = args.member.user;
-    };
 
     // Would break if no visible roles
 
-    let heistRole = "None";
-
-    if (member.hoistRole) {
-      heistRole = member.hoistRole.name;
-    };
+    let hoistRole = member.hoistRole ? member.hoistRole.name : "None";
 
     // Let's start building an embed!
 
@@ -127,7 +118,7 @@ module.exports = class ChannelCommand extends Command {
 
       .addField(
         "Highest Visible Role",
-        heistRole,
+        hoistRole,
         true
       )
 

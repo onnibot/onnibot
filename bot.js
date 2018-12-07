@@ -1,7 +1,7 @@
 const path = require('path');
 const sqlite = require('sqlite');
 const config = require('./config/config.json');
-const package = require('./package.json');
+const packageJson = require('./package.json');
 const {
   calcTime
 } = require("./utils/calctime.js");
@@ -14,6 +14,8 @@ const client = new Commando.Client({
   disableEveryone: true,
   unknownCommandResponse: false
 });
+
+exports.shard = new Discord.ShardClientUtil(client);
 
 client.registry
   // Registers your custom command groups
@@ -49,13 +51,13 @@ Shard: ${client.shard.id} (Shards: ${client.shard.count})
 `);
 
   console.log(`Build info:
-Name: ${package.name}
-Version: ${package.version} (${package.description})
-Author: ${package.author}
+Name: ${packageJson.name}
+Version: ${packageJson.version} (${packageJson.description})
+Author: ${packageJson.author}
 `);
 
   // Sets client status message
-  client.user.setActivity(client.commandPrefix + "help |  v" + package.version + " / " + package.description + " | " + client.shard.id, {
+  client.user.setActivity(client.commandPrefix + "help |  v" + packageJson.version + " / " + packageJson.description + " | " + client.shard.id, {
       type: 'WATCHING'
     })
     .then(presence => console.log(`Activity set for shard ${client.shard.id}.\n \n`))
