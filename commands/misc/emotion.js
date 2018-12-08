@@ -1,12 +1,17 @@
 const {
   Command
 } = require('discord.js-commando');
+const {
+  chooseRnd
+} = require("./../../utils/choosernd.js");
+const kaomojis = require("./../../lists/kaomojis.json")
 
 module.exports = class ReplyCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'emotion',
       group: 'misc',
+      aliases: ['kaomoji', 'emoji', 'emoticon', 'kaomojis', 'emotions', 'emoticons', 'emojis'],
       memberName: 'emotion',
       description: 'Replies with a kaomoji to fit your mood.',
       examples: ['emotion sad', 'emotion happy'],
@@ -14,33 +19,31 @@ module.exports = class ReplyCommand extends Command {
         usages: 2,
         duration: 10
       },
+      args: [
+        {
+            key: 'kaomoji',
+            prompt: 'Which kaomoji category?\n```' + Object.keys(kaomojis).join(", ") + '```',
+            type: 'string',
+            validate: text => {
+              // If object has wanted kaomoji category, return
+              if (kaomojis.hasOwnProperty(text.toLowerCase())) return true;
+              // If doesn't, return list
+              return 'That is not a valid kaomoji. Please refer to this list: ```' + Object.keys(kaomojis).join(", ") + '```'
+            }
+        }
+    ]
     });
   }
 
   run(msg, args) {
-    function choose(choices) {
-      var index = Math.floor(Math.random() * choices.length);
-      return choices[index];
+
+    const kaomojiArg = args.kaomoji.toLowerCase()
+    if (kaomojis.hasOwnProperty(kaomojiArg)) {
+      const kaomojiCategory = kaomojis[kaomojiArg]
+      msg.say(chooseRnd(kaomojiCategory))
+    } else {
+      msg.say('Something went wrong')
     }
-  }
 
-  var happy = ['(* ^ ω ^)', '(* ^ ω ^)', '٩(◕‿◕｡)۶'];
-  var sad = ['(ノ_<。)', 'o(TヘTo)', '(╥_╥)'];
-  var angry = ['(＃`Д´)', 'ヾ(`ヘ´)ﾉﾞ', '(╬`益´)'];
-  var scared = ['(″ロ゛)', '＼(º □ º l|l)/', 'Σ(°△°|||)︴'];
-
-  switch(args[0]){
-    case 'happy':
-      return msg.say(choose(happy));
-      break;
-    case 'sad':
-      return msg.say(choose(sad));
-      break;
-    case 'angry':
-      return msg.say(choose(angry));
-      break;
-    case 'scared':
-      return msg.say(choose(fear));
-      break;
   }
 };
