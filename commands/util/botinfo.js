@@ -64,7 +64,7 @@ module.exports = class ChannelCommand extends Command {
       .addField(
         "Versions",
         stripIndents `
-        **Karma**: v${packageJson.version} (${packageJson.description})
+        **Onni**: v${packageJson.version} (${packageJson.description})
         **NodeJS**: ${process.version}`,
         true
       )
