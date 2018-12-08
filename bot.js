@@ -81,7 +81,10 @@ client.on('guildMemberAdd', member => {
       `${member.user.username} popped up!`,
       `${member.user.username} joined in the fun!`,
       `${member.user.username} joined.`,
-      `${member.user.username} clicked the invite!`
+      `${member.user.username} clicked the invite!`,
+      `${member.user.username} is now a member. It's time for the ritual.`,
+      `It's a bird! It's a plane! It's ${member.user.username}!`,
+      `${member.user.username} IS HERE (・∀・)ノ`
     ];
 
     // Chooses a random title
@@ -118,8 +121,10 @@ client.on('guildMemberRemove', member => {
 
   if (targetChannel) {
 
-    const titles = [`${member.user.username} left the building.`, `Bye ${member.user.username}!`,
-      `See you later, ${member.user.username}.`, `${member.user.username} has disappeared.`
+    const titles = [
+      `${member.user.username} left the building.`, `Bye ${member.user.username}!`,
+      `See you later, ${member.user.username}.`, `${member.user.username} has disappeared.`,
+      `It's sad to see you go, ${member.user.username}. :(`, `${member.user.username}, hope you enjoyed your stay!`
     ];
     title = titles[Math.floor(Math.random() * titles.length)];
 
