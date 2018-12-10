@@ -249,12 +249,6 @@ Nav
 
 */
 
-.closeButton {
-	right: 10px !important;
-	top: 10px !important;
-	position: absolute;
-}
-
 .nav-button {
 	background-color: #5d95ef;
 	border-radius: 5px;
@@ -299,6 +293,22 @@ Tooltips
 	.navButton {
 		display: none;
 	}
+
+	.nav-content {
+		margin-top: 50px;
+		display: none;
+	}
+
+	#nav, #closeButton {
+		padding-top: 0px !important;
+	}
+
+	.closeButton {
+		right: 10px !important;
+		top: 0px !important;
+		position: sticky;
+	}
+
 }
 
 @media screen and (min-device-width: 768px) {
@@ -307,10 +317,9 @@ Tooltips
 		display: inline-block;
 	}
 
-	.nav-content {
-		margin-top: 50px;
-		display: none;
-	}
+.closeButton {
+	display: none;
+}
 
 	/* Tooltip text */
 
