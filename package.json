@@ -4,8 +4,8 @@
   "description": "Anni",
   "main": "run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node run.js"
+    "start": "NODE_ENV=production node run.js",
+    "test": "NODE_ENV=development node run.js"
   },
   "keywords": [
     "discord",
