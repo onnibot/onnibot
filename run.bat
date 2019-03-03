@@ -1,2 +1,2 @@
-node run.js
+npm start
 pause
